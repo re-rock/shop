@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8"></meta>
+</head>
+<body>
+
+<!-- ポイント：th:fragment -->
+<div th:fragment="home_contents">
+    <!-- Men's Outerwear -->
+    <div class="container item full_width">
+        <div class="row">
+            <a class="image-link" th:href="@{/category/mens_outerwear}">
+                <img class="img-fluid" alt="Men's Outerwear" th:src="@{/img/mens_outerwear.jpg}"
+                     style="opacity: 1; transition: opacity 0.5s ease 0s;">
+            </a>
+        </div>
+        <div class="row justify-content-center item-title">
+            <p class="margin-zero">Men's Outerwear</p>
+        </div>
+        <div class="row justify-content-center">
+            <a class="btn btn-outline-dark" th:href="@{/category/mens_outerwear}" role="button">SHOP NOW</a>
+        </div>
+    </div>
+    <!-- Ladies Outerwear -->
+    <div class="container item full_width">
+        <div class="row">
+            <a class="image-link" th:href="@{/category/ladies_outerwear}">
+                <img class="img-fluid" alt="Men's Outerwear" th:src="@{/img/ladies_outerwear.jpg}"
+                     style="opacity: 1; transition: opacity 0.5s ease 0s;">
+            </a>
+        </div>
+        <div class="row justify-content-center item-title">
+            <p class="margin-zero">Ladies Outerwear</p>
+        </div>
+        <div class="row justify-content-center">
+            <a class="btn btn-outline-dark" th:href="@{/category/ladies_outerwear}" role="button">SHOP NOW</a>
+        </div>
+    </div>
+
+    <!-- Men's T-Shrits -->
+    <div class="container full_width item">
+        <div class="row">
+            <div class="col padding-zero">
+                <a class="image-link" th:href="@{/category/mens_tshirts}">
+                    <img class="categories_img" alt="Men's T-Shrits" th:src="@{/img/mens_tshirts.jpg}"
+                         style="opacity: 1; transition: opacity 0.5s ease 0s;">
+                </a>
+                <div class="item-title">
+                    <p class="text-center">Men's T-Shrits</p>
+                </div>
+                <div class="text-center">
+                    <a class="btn btn-outline-dark" th:href="@{/category/mens_tshirts}" role="button">SHOP NOW</a>
+                </div>
+            </div>
+            <!-- Ladies T-Shrits -->
+            <div class="col padding-zero">
+                <a class="image-link" th:href="@{/category/ladies_tshirts}">
+                    <img class="categories_img" alt="Ladies T-Shrits" th:src="@{/img/ladies_tshirts.jpg}"
+                         style="opacity: 1; transition: opacity 0.5s ease 0s;">
+                </a>
+                <div class="item-title">
+                    <p class="text-center">Ladies T-Shrits</p>
+                </div>
+                <div class="text-center">
+                    <a class="btn btn-outline-dark" th:href="@{/category/ladies_tshirts}" role="button">SHOP NOW</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!-- /th:fragment -->
+</body>
+</html>

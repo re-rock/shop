@@ -1,0 +1,148 @@
+.padding-zero {
+    padding: 0 !important;
+}
+
+.margin-zero {
+    margin: 0 0 0 0 !important;
+}
+
+.color-black {
+    color: black;
+}
+
+body {
+    font-family: 'Roboto', 'Noto', sans-serif;
+}
+
+.categories {
+    margin-bottom: 20px;
+}
+
+.full_width {
+    max-width: 1440px;
+}
+
+.half_width {
+    max-width: 720px;
+}
+
+.categories_img {
+    height: 320px;
+    width: 720px;
+    object-fit: cover;
+}
+
+.item {
+    margin-bottom: 40px;
+}
+
+.item-title {
+    margin: 32px auto 32px auto;
+}
+
+.home-link {
+    text-decoration: none;
+    color: black;
+    font-size: 26px;
+    letter-spacing: 0.2em;
+    pointer-events: auto;
+    font-weight: 500;
+}
+
+a:link, a:visited, a:hover, a:active {
+    color: black;
+    text-decoration: none;
+}
+
+.sidebar {
+    position: fixed;
+    display: block;
+    top: 50px;
+    bottom: 0;
+    background-color: #F4F5F7;
+}
+
+.main {
+    padding-top: 50px;
+    padding-left: 20px;
+    position: fixed;
+    display: block;
+    top: 0px;
+    bottom: 0;
+}
+
+.page-header {
+    margin-top: 0px;
+}
+
+.category-title {
+    font-weight: 500;
+    margin-top: 20px;
+}
+
+.category-item-counter {
+    color: rgb(117, 117, 117);
+    font-size: 12px;
+}
+
+.item-card {
+    margin-bottom: 60px;
+    border: none;
+}
+
+.item-img {
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+    opacity: 1;
+    transition: opacity 0.5s ease 0s;
+}
+
+/************ ITEM PAGE ************/
+.item-container {
+    margin-top: 80px;
+    margin-bottom: 80px;
+    color: #757575;
+}
+
+.item-large-img {
+    width: 600px;
+    height: 600px;
+}
+
+.item-name {
+    font-weight: 400;
+    margin: 20px auto 0;
+}
+
+.item-price {
+    margin: 16px 0 40px;
+    font-size: 16px;
+    color: #757575;
+}
+
+.label-size {
+    font-size: 13px;
+}
+
+.label-quantity {
+    font-size: 13px;
+}
+
+.description-part {
+    font-size: 13px;
+}
+
+.description-title {
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.item-btn {
+    width: 180px;
+    font-size: 14px;
+    border: 2px solid #000;
+    border-radius: 0;
+    margin-top: 15px;
+}
