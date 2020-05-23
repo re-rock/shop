@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.domain.repository.ItemMybatisDao">
+
+    <!-- マッピング定義 -->
+    <resultMap type="com.example.demo.domain.model.Item" id="item">
+        <id column="item_id" property="itemId"/>
+        <result column="item_name" property="itemName"/>
+        <result column="item_category" property="itemCategory"/>
+        <result column="price" property="price"/>
+        <result column="stock_s" property="stockS"/>
+        <result column="stock_m" property="stockM"/>
+        <result column="stock_l" property="stockL"/>
+        <result column="description" property="description"/>
+        <result column="features" property="features"/>
+    </resultMap>
+
+    <!-- 全商品の数を取得する -->
+    <select id="countCategoryItems" parameterType="string" resultType="int">
+        SELECT
+            COUNT(*)
+        FROM
+            item
+        WHERE
+            item_category = #{categoryType}
+    </select>
+
+    <!-- select item information -->
+    <select id="selectItemInfo" parameterType="string" resultMap="item">
+        SELECT
+            item_id,
+            item_name,
+            item_category,
+            price,
+            stock_s,
+            stock_m,
+            stock_l,
+            description,
+            features
+        FROM
+            item
+        WHERE
+            item_id = #{itemId}
+    </select>
+
+    <!-- カテゴリー毎の全商品を取得   -->
+    <select id="selectItems" parameterType="string" resultMap="item">
+        SELECT
+            item_id,
+            item_name,
+            item_category,
+            price,
+            stock_s,
+            stock_m,
+            stock_l,
+            description,
+            features
+        FROM
+            item
+        WHERE
+            item_category = #{categoryType}
+    </select>
+
+</mapper>

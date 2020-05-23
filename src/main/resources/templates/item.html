@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8"></meta>
+</head>
+<body>
+<!-- ポイント：th:fragment -->
+<div th:fragment="item_contents">
+    <div class="container full_width item-container">
+        <div class="row">
+            <div class="col-md-7">
+                <!-- TODO 画像をitemIdに修正する -->
+                <img class="bd-placeholder-img float-md-right item-large-img" alt="item-image"
+                     th:src="@{'/img/item/' + ${item.itemCategory} + '/' + ${item.itemCategory} + '.jpg'}">
+            </div>
+            <aside class="col-md-4">
+                <h4 class="color-black" th:text="${item.itemName}">Item Name</h4>
+                <div class="item-price" th:text="'$' + ${item.price}">Item Price</div>
+                <form>
+                    <div class="form-group row">
+                        <label for="item-size" class="col-sm-2 col-form-label label-size">Size</label>
+                        <div class="col-sm-10">
+                            <div th:if="${isAvailable}">
+                                <select id="item-size" class="form-control form-control">
+                                    <option th:if="${item.stockS} > 0">S</option>
+                                    <option th:if="${item.stockM} > 0" selected>M</option>
+                                    <option th:if="${item.stockL} > 0">L</option>
+                                </select>
+                            </div>
+                            <div th:if="not ${isAvailable}">
+                                <select id="item-size" class="form-control form-control" disabled></select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="quantity" class="col-sm-2 col-form-label label-quantity">Quantity</label>
+                        <div class="col-sm-10">
+                            <div th:if="${isAvailable}">
+                                <select id="quantity" class="form-control form-control">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </div>
+                            <div th:if="not ${isAvailable}">
+                                <select id="quantity" class="form-control form-control" disabled></select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="description-part">
+                        <p class="description-title">Description</p>
+                        <p th:text="${item.description}">Item Description</p>
+                        <div>Features:</div>
+                        <ul>
+                            <div th:each="feature : ${features}">
+                                <li th:text="${feature}">feature</li>
+                            </div>
+                        </ul>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-10">
+                            <div th:if="${isAvailable}">
+                                <button type="submit" class="btn btn-outline-dark item-btn">ADD TO CART</button>
+                            </div>
+                            <div th:if="not ${isAvailable}">
+                                <button type="submit" class="btn btn-outline-dark item-btn" disabled>ADD TO CART</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </aside>
+        </div><!-- row -->
+    </div><!-- container -->
+</div><!-- fragment -->
+</body>
+</html>

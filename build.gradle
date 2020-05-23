@@ -21,12 +21,14 @@ repositories {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    compile("org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.1")
     compileOnly 'org.projectlombok:lombok'
     runtimeOnly 'mysql:mysql-connector-java'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     annotationProcessor 'org.projectlombok:lombok'
     compile group: 'org.webjars', name: 'bootstrap', version: '4.1.0'
     compile group: 'org.webjars.bower', name: 'jquery', version: '3.4.1'
+    compile 'org.mybatis:mybatis-spring:2.0.4'
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }

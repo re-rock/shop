@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"></meta>
+</head>
+<body>
+<!-- ポイント：th:fragment -->
+<div th:fragment="category_contents">
+    <!-- Men's Outerwear -->
+    <div class="container full_width">
+        <div class="row">
+            <img class="img-fluid" alt="@{title}" th:src="@{/img/{type}.jpg(type=${type})}"
+                 style="opacity: 1; transition: opacity 0.5s ease 0s;">
+        </div>
+    </div>
+    <div class="row justify-content-center category-title">
+        <p class="margin-zero" th:text="${title}">Category Name</p>
+    </div>
+    <div class="row justify-content-center">
+        <p class="category-item-counter" th:text="'(' + ${totalCategoryItems} + ' Items)'">Nothing Items</p>
+    </div>
+    <!-- cards -->
+    <div class="container full_width">
+        <div class="card-group">
+            <div class="col-md-4 padding-zero" th:each="item : ${itemList}">
+                <a class="" th:href="@{/detail/{itemId}(itemId=${item.itemId})}">
+                    <div class="card item-card">
+                        <!-- TODO img file path is temporary for development -->
+                        <img class="bd-placeholder-img card-img-top item-img" alt="item_image"
+                             th:src="@{'/img/category/' + ${item.itemCategory} + '/' + ${item.itemCategory} + '.jpg'}">
+                        <div class="card-body text-center padding-zero">
+                            <h5 class="card-title item-name" th:text="${item.itemName}">Item Name</h5>
+                            <p class="card-text"><small class="text-muted" th:text="'$' + ${item.price}">$??</small>
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div><!-- card-group -->
+    </div><!-- container -->
+</div><!-- fragment -->
+</body>
+</html>
