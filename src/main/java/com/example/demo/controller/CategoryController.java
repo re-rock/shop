@@ -14,6 +14,7 @@ import static com.example.demo.Constants.CATEGORY_NAME_MAP;
 
 @Controller
 public class CategoryController {
+
     @Autowired
     CategoryService categoryService;
 

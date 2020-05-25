@@ -13,9 +13,6 @@ import java.util.regex.Pattern;
 @Controller
 public class ItemController {
 
-    @Controller
-    public class ItemControler {
-
         @Autowired
         ItemService itemService;
 
@@ -36,6 +33,5 @@ public class ItemController {
             model.addAttribute("features", features);
             model.addAttribute("contents", "item :: item_contents");
             return "base";
-        }
     }
 }

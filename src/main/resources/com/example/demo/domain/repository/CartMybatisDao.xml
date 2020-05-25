@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.domain.repository.CartMybatisDao">
+
+    <!-- マッピング定義 -->
+    <resultMap type="com.example.demo.domain.model.Cart" id="cart">
+        <id column="item_id" property="itemId"/>
+        <result column="item_name" property="itemName"/>
+        <result column="price" property="price"/>
+        <result column="item_size" property="itemSize"/>
+        <result column="quantity" property="quantity"/>
+    </resultMap>
+
+    <!-- カートテーブルにアイテムを追加 -->
+    <insert id="insertItemToCart" parameterType="com.example.demo.domain.model.Cart">
+        INSERT INTO
+            cart (
+            item_id,
+            item_name,
+            price,
+            item_size,
+            quantity
+        )
+        VALUES (
+            #{itemId},
+            #{itemName},
+            #{price},
+            #{itemSize},
+            #{quantity}
+        )
+     </insert>
+
+    <!-- カートテーブルの全アイテムを取得 -->
+    <select id="selectItemsFromCart" parameterType="string" resultMap="cart">
+        SELECT
+            item_id,
+            item_name,
+            price,
+            item_size,
+            quantity
+        FROM
+            cart
+        WHERE
+            item_id = #{itemId}
+    </select>
+</mapper>

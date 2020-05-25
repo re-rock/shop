@@ -40,10 +40,14 @@ body {
     margin: 32px auto 32px auto;
 }
 
+.title-area {
+    margin-top: 20px;
+}
+
 .home-link {
     text-decoration: none;
     color: black;
-    font-size: 26px;
+    font-size: 17px;
     letter-spacing: 0.2em;
     pointer-events: auto;
     font-weight: 500;
@@ -145,4 +149,13 @@ a:link, a:visited, a:hover, a:active {
     border: 2px solid #000;
     border-radius: 0;
     margin-top: 15px;
+}
+
+.cart-msg {
+    margin-bottom: 100px;
+}
+
+.empty_msg {
+    margin-bottom: 400px;
+    color: gray;
 }

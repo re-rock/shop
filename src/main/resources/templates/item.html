@@ -17,12 +17,12 @@
             <aside class="col-md-4">
                 <h4 class="color-black" th:text="${item.itemName}">Item Name</h4>
                 <div class="item-price" th:text="'$' + ${item.price}">Item Price</div>
-                <form>
+                <form role="form" th:action="@{/cart}" th:object="${cart}" method="post">
                     <div class="form-group row">
                         <label for="item-size" class="col-sm-2 col-form-label label-size">Size</label>
                         <div class="col-sm-10">
                             <div th:if="${isAvailable}">
-                                <select id="item-size" class="form-control form-control">
+                                <select id="item-size" name="itemSize" class="form-control form-control">
                                     <option th:if="${item.stockS} > 0">S</option>
                                     <option th:if="${item.stockM} > 0" selected>M</option>
                                     <option th:if="${item.stockL} > 0">L</option>
@@ -37,7 +37,7 @@
                         <label for="quantity" class="col-sm-2 col-form-label label-quantity">Quantity</label>
                         <div class="col-sm-10">
                             <div th:if="${isAvailable}">
-                                <select id="quantity" class="form-control form-control">
+                                <select id="quantity" name="quantity" class="form-control form-control">
                                     <option>1</option>
                                     <option>2</option>
                                     <option>3</option>
@@ -63,13 +63,16 @@
                     <div class="form-group row">
                         <div class="col-sm-10">
                             <div th:if="${isAvailable}">
-                                <button type="submit" class="btn btn-outline-dark item-btn">ADD TO CART</button>
+                                <button type="submit" class="btn btn-outline-dark item-btn" name="add">ADD TO CART</button>
                             </div>
                             <div th:if="not ${isAvailable}">
                                 <button type="submit" class="btn btn-outline-dark item-btn" disabled>ADD TO CART</button>
                             </div>
                         </div>
                     </div>
+                    <input type="hidden" name="itemId" th:value="${item.itemId}">
+                    <input type="hidden" name="itemName" th:value="${item.itemName}">
+                    <input type="hidden" name="price" th:value="${item.price}">
                 </form>
             </aside>
         </div><!-- row -->
