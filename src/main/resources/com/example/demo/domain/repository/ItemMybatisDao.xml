@@ -27,7 +27,7 @@
     </select>
 
     <!-- select item information -->
-    <select id="selectItemInfo" parameterType="string" resultMap="item">
+    <select id="selectItemInfo" parameterType="int" resultMap="item">
         SELECT
             item_id,
             item_name,

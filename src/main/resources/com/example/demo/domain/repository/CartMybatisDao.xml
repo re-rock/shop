@@ -44,7 +44,7 @@
     </select>
 
     <!-- カートテーブルから対象のアイテムを削除 -->
-    <delete id="deleteItemsFromCart" parameterType="string">
+    <delete id="deleteItemsFromCart" parameterType="int">
         DELETE FROM
             cart
         WHERE
@@ -57,4 +57,13 @@
             cart
     </delete>
 
+    <!-- アイテム数量変更 -->
+    <update id="updateItemQuantity" parameterType="int">
+        UPDATE
+            cart
+        SET
+            quantity = #{quantity}
+        WHERE
+            item_id = #{itemId}
+    </update>
 </mapper>

@@ -40,12 +40,37 @@ public class CartService {
     }
 
     /**
+     * カートに追加されているアイテムの合計金額を算出
+     */
+    public double calcTotalPrice(List<Cart> cartItems) {
+        double totalPrice = 0;
+        for (Cart cartItem : cartItems) {
+            double price = cartItem.getPrice();
+            int quantity = cartItem.getQuantity();
+            totalPrice += (price * quantity);
+        }
+        totalPrice = (Math.floor(totalPrice * 100) / 100);
+        return totalPrice;
+    }
+
+    /**
      * カートにあるアイテム情報を削除
      * @return List<Cart>
      */
-    public void deleteItemsFromCart(String itemId) {
+    public void deleteItemsFromCart(int itemId) {
         try {
             cartMybatisDao.deleteItemsFromCart(itemId);
+        } catch (DataAccessException e) {
+            throw e;
+        }
+    }
+
+    /**
+     * アイテムの購入数を変更
+     */
+    public void updateItemQuantity(int itemId, int quantity) {
+        try {
+            cartMybatisDao.updateItemQuantity(itemId, quantity);
         } catch (DataAccessException e) {
             throw e;
         }

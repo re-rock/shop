@@ -206,6 +206,10 @@ a:link, a:visited, a:hover, a:active {
     margin-bottom: 0;
 }
 
+.total-price {
+    font-weight: bold;
+}
+
 .form-control {
     width: 70px;
 }
@@ -220,6 +224,10 @@ a:link, a:visited, a:hover, a:active {
     background-color: white;
     width: 140px;
     height: 40px;
+}
+
+.none-display{
+    display:none;
 }
 
 .thanks-msg {

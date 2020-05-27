@@ -7,7 +7,7 @@ import java.io.Serializable;
 @Data
 public class Cart implements Serializable {
 
-    private String itemId;
+    private int itemId;
     private String itemName;
     private double price;
     private char itemSize; // size

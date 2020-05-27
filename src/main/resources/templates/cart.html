@@ -47,15 +47,19 @@
             </div>
             <div class="row bottom_area">
                 <div class="col-6 d-flex align-items-center"></div>
-                <div class="col-2 d-flex align-items-center">Total:&nbsp&nbsp&nbsp&nbsp$</div>
+                <div class="col-2 d-flex align-items-center total-price" th:text="'Total:&nbsp&nbsp&nbsp&nbsp$' + ${totalPrice}">Total:&nbsp&nbsp&nbsp&nbsp$</div>
                 <div class="col-2 d-flex align-items-center">
                     <form role="form" th:action="@{/checkout}" method="get">
                         <button type="submit" class="checkout">CHECKOUT</button>
                     </form>
                 </div>
             </div>
-            <!--                <input type="hidden" name="post_id" value="">-->
-            <!--                <input type="hidden" name="post_quantity" value="">-->
+            <div class="none-display">
+                <form id="hidden-form" role="form" th:action="@{/cart}" method="post">
+                    <input class="param_id" type="hidden" name="post_id" value="">
+                    <input class="param_qty" type="hidden" name="post_quantity" value="">
+                </form>
+            </div>
         </div>
     </div>
 </div>

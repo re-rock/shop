@@ -17,7 +17,7 @@ public class ItemService {
     /**
      * select item info from db
      */
-    public Item selectItemInfo(String itemId) {
+    public Item selectItemInfo(int itemId) {
         try {
             return itemMybatisDao.selectItemInfo(itemId);
         } catch (DataAccessException e) {

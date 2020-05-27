@@ -20,7 +20,7 @@ public class ItemController {
          * カテゴリー画面のGET用メソッド
          */
         @GetMapping("/detail/{itemId}")
-        public String getCategory(@PathVariable("itemId")String itemId, Model model) {
+        public String getCategory(@PathVariable("itemId")int itemId, Model model) {
             // get selected item information from db
             Item item = itemService.selectItemInfo(itemId);
             // flag of can purchase item

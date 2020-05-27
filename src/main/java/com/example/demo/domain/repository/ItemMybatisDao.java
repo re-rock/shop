@@ -11,7 +11,7 @@ public interface ItemMybatisDao {
     // カテゴリー毎の登録商品数を取得
     int countCategoryItems(String categoryType);
     // select item information from DB
-    Item selectItemInfo(String ItemId);
+    Item selectItemInfo(int ItemId);
     // 選択されたカテゴリーの全商品情報を取得
     List<Item> selectItems(String categoryType);
 }

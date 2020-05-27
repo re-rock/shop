@@ -36,9 +36,11 @@ public class CartController {
             //if (cartItems == null) {
             isEmpty = false;
         }
+        double totalPrice = cartService.calcTotalPrice(cartItems);
         model.addAttribute("cartItems", cartItems);
         model.addAttribute("itemsNumber", cartItems.size());
         model.addAttribute("isEmpty", isEmpty);
+        model.addAttribute("totalPrice", totalPrice);
         model.addAttribute("contents", "cart");
         return "base";
     }
@@ -47,7 +49,7 @@ public class CartController {
      * カートから対象アイテム削除
      */
     @GetMapping("/cart")
-    public String deleteItem(@RequestParam String item_id, Model model) {
+    public String deleteItem(@RequestParam int item_id, Model model) {
         boolean isEmpty = true;
         // 対象のアイテムをカートテーブルから削除
         cartService.deleteItemsFromCart(item_id);
@@ -57,9 +59,11 @@ public class CartController {
             //if (cartItems == null) {
             isEmpty = false;
         }
+        double totalPrice = cartService.calcTotalPrice(cartItems);
         model.addAttribute("cartItems", cartItems);
         model.addAttribute("itemsNumber", cartItems.size());
         model.addAttribute("isEmpty", isEmpty);
+        model.addAttribute("totalPrice", totalPrice);
         model.addAttribute("contents", "cart");
         return "base";
     }
@@ -79,29 +83,31 @@ public class CartController {
             //if (cartItems == null) {
             isEmpty = false;
         }
+        double totalPrice = cartService.calcTotalPrice(cartItems);
         model.addAttribute("cartItems", cartItems);
         model.addAttribute("itemsNumber", cartItems.size());
         model.addAttribute("isEmpty", isEmpty);
+        model.addAttribute("totalPrice", totalPrice);
         model.addAttribute("contents", "cart");
         return "base";
     }
 
-//    @PostMapping(value = "/cart", params = "change")
-//    public String cartAddItem(@ModelAttribute("cart") Cart cart, Model model) {
-//        // カートにアイテムが有る状態
-//        boolean isEmpty = true;
-//        // カートテーブルに追加されたアイテムを追加
-//        cartService.insertItemToCart(cart);
-//        // カートテーブルに追加されている全アイテムを取得する
-//        List<Cart> cartItems = cartService.selectItemsFromCart();
-//        if (!isEmpty(cartItems)) {
-//            //if (cartItems == null) {
-//            isEmpty = false;
-//        }
-//        model.addAttribute("cartItems", cartItems);
-//        model.addAttribute("itemsNumber", cartItems.size());
-//        model.addAttribute("isEmpty", isEmpty);
-//        model.addAttribute("contents", "cart");
-//        return "base";
-//    }
+    // 数量変更
+    @PostMapping(value = "/cart")
+    public String changeQuantity(
+            @RequestParam(value = "post_id")int itemId,
+            @RequestParam(value = "post_quantity")int quantity,
+            Model model) {
+        // 対象のアイテムの数量変更
+        cartService.updateItemQuantity(itemId, quantity);
+        // カートテーブルに追加されている全アイテムを取得する
+        List<Cart> cartItems = cartService.selectItemsFromCart();
+        double totalPrice = cartService.calcTotalPrice(cartItems);
+        model.addAttribute("cartItems", cartItems);
+        model.addAttribute("itemsNumber", cartItems.size());
+        model.addAttribute("isEmpty", false);
+        model.addAttribute("totalPrice", totalPrice);
+        model.addAttribute("contents", "cart");
+        return "base";
+    }
 }

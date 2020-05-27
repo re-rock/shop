@@ -47,11 +47,14 @@
     </footer>
 </div>
 <script>
+    // 数量変更処理
     $(function() {
         $('.inputQty').change(function () {
-            const quantity = $(this).val();
             const itemId = $(this).attr('id');
-
+            const quantity = $(this).val();
+            $('.param_id').val(itemId);
+            $('.param_qty').val(quantity);
+            $('#hidden-form').submit();
         });
     });
 </script>

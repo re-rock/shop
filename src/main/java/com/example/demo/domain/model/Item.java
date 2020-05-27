@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class Item {
-    private long   itemId;       // 商品ID
+    private int   itemId;       // 商品ID
     private String itemName;     // 商品名
     private String itemCategory; // カテゴリー
     private float  price;        // 価格
