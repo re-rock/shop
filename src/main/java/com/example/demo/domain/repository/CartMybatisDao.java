@@ -11,5 +11,9 @@ public interface CartMybatisDao {
     // Cartにアイテムを追加
     void insertItemToCart(Cart cart);
     // Cartにあるアイテムをすべて取得
-    List<Cart> selectItemsFromCart(String itemId);
+    List<Cart> selectItemsFromCart();
+    // カートテーブルから対象のアイテムを削除
+    void deleteItemsFromCart(String itemId);
+    // カートテーブルの情報を全削除
+    void deleteAllItem();
 }

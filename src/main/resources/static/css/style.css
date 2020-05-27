@@ -1,3 +1,15 @@
+#wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+footer {
+    margin-top: auto;
+    margin-bottom: 20px;
+
+}
+
 .padding-zero {
     padding: 0 !important;
 }
@@ -14,8 +26,15 @@ body {
     font-family: 'Roboto', 'Noto', sans-serif;
 }
 
+.fa-shopping-cart {
+    font-size: 1.1rem;
+    margin-right: 30px;
+}
+
 .categories {
+    font-size: 14px;
     margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 .full_width {
@@ -47,10 +66,10 @@ body {
 .home-link {
     text-decoration: none;
     color: black;
-    font-size: 17px;
+    font-size: 16px;
+    font-weight: bold;
     letter-spacing: 0.2em;
     pointer-events: auto;
-    font-weight: 500;
 }
 
 a:link, a:visited, a:hover, a:active {
@@ -152,10 +171,58 @@ a:link, a:visited, a:hover, a:active {
 }
 
 .cart-msg {
-    margin-bottom: 100px;
+    margin-bottom: 70px;
 }
 
 .empty_msg {
+    margin-top: 30px;
     margin-bottom: 400px;
     color: gray;
+}
+
+.item-number {
+    font-size: 13px;
+    margin-bottom: 20px;
+    color: gray;
+}
+.cart-item {
+    height: 72px;
+    margin-bottom: 30px;
+    font-size: 14px;
+}
+
+.cart-img {
+    width: 68px;
+    height: 68px;
+}
+
+.delete {
+    width: 18px;
+    height: 18px;
+}
+
+.item-qty {
+    margin-right: 10px;
+    margin-bottom: 0;
+}
+
+.form-control {
+    width: 70px;
+}
+
+.bottom_area {
+    margin-top: 20px;
+    margin-bottom: 150px;
+}
+
+.checkout {
+    font-size: 14px;
+    background-color: white;
+    width: 140px;
+    height: 40px;
+}
+
+.thanks-msg {
+    margin-top: 150px;
+    margin-bottom: 300px;
 }

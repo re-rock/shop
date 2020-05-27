@@ -32,7 +32,7 @@
      </insert>
 
     <!-- カートテーブルの全アイテムを取得 -->
-    <select id="selectItemsFromCart" parameterType="string" resultMap="cart">
+    <select id="selectItemsFromCart" resultMap="cart">
         SELECT
             item_id,
             item_name,
@@ -41,7 +41,20 @@
             quantity
         FROM
             cart
+    </select>
+
+    <!-- カートテーブルから対象のアイテムを削除 -->
+    <delete id="deleteItemsFromCart" parameterType="string">
+        DELETE FROM
+            cart
         WHERE
             item_id = #{itemId}
-    </select>
+    </delete>
+
+    <!-- カートテーブルからすべてのアイテムを削除 -->
+    <delete id="deleteAllItem">
+        DELETE FROM
+            cart
+    </delete>
+
 </mapper>

@@ -26,13 +26,26 @@ public class CartService {
             throw e;
         }
     }
+
     /**
      * カートにあるアイテム情報を取得
      * @return List<Cart>
      */
-    public List<Cart> selectItemsFromCart(String itemId) {
+    public List<Cart> selectItemsFromCart() {
         try {
-            return cartMybatisDao.selectItemsFromCart(itemId);
+            return cartMybatisDao.selectItemsFromCart();
+        } catch (DataAccessException e) {
+            throw e;
+        }
+    }
+
+    /**
+     * カートにあるアイテム情報を削除
+     * @return List<Cart>
+     */
+    public void deleteItemsFromCart(String itemId) {
+        try {
+            cartMybatisDao.deleteItemsFromCart(itemId);
         } catch (DataAccessException e) {
             throw e;
         }
