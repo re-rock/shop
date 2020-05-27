@@ -44,28 +44,6 @@ public class CartController {
     }
 
     /**
-     * カートに追加処理
-     */
-    @PostMapping(value = "/cart", params = "add")
-    public String cartAddItem(@ModelAttribute("cart") Cart cart, Model model) {
-        // カートにアイテムが有る状態
-        boolean isEmpty = true;
-        // カートテーブルに追加されたアイテムを追加
-        cartService.insertItemToCart(cart);
-        // カートテーブルに追加されている全アイテムを取得する
-        List<Cart> cartItems = cartService.selectItemsFromCart();
-        if (!isEmpty(cartItems)) {
-        //if (cartItems == null) {
-            isEmpty = false;
-        }
-        model.addAttribute("cartItems", cartItems);
-        model.addAttribute("itemsNumber", cartItems.size());
-        model.addAttribute("isEmpty", isEmpty);
-        model.addAttribute("contents", "cart");
-        return "base";
-    }
-
-    /**
      * カートから対象アイテム削除
      */
     @GetMapping("/cart")
@@ -85,4 +63,45 @@ public class CartController {
         model.addAttribute("contents", "cart");
         return "base";
     }
+
+    /**
+     * カートに追加処理
+     */
+    @PostMapping(value = "/cart", params = "add")
+    public String cartAddItem(@ModelAttribute("cart") Cart cart, Model model) {
+        // カートにアイテムが有る状態
+        boolean isEmpty = true;
+        // カートテーブルに追加されたアイテムを追加
+        cartService.insertItemToCart(cart);
+        // カートテーブルに追加されている全アイテムを取得する
+        List<Cart> cartItems = cartService.selectItemsFromCart();
+        if (!isEmpty(cartItems)) {
+            //if (cartItems == null) {
+            isEmpty = false;
+        }
+        model.addAttribute("cartItems", cartItems);
+        model.addAttribute("itemsNumber", cartItems.size());
+        model.addAttribute("isEmpty", isEmpty);
+        model.addAttribute("contents", "cart");
+        return "base";
+    }
+
+//    @PostMapping(value = "/cart", params = "change")
+//    public String cartAddItem(@ModelAttribute("cart") Cart cart, Model model) {
+//        // カートにアイテムが有る状態
+//        boolean isEmpty = true;
+//        // カートテーブルに追加されたアイテムを追加
+//        cartService.insertItemToCart(cart);
+//        // カートテーブルに追加されている全アイテムを取得する
+//        List<Cart> cartItems = cartService.selectItemsFromCart();
+//        if (!isEmpty(cartItems)) {
+//            //if (cartItems == null) {
+//            isEmpty = false;
+//        }
+//        model.addAttribute("cartItems", cartItems);
+//        model.addAttribute("itemsNumber", cartItems.size());
+//        model.addAttribute("isEmpty", isEmpty);
+//        model.addAttribute("contents", "cart");
+//        return "base";
+//    }
 }

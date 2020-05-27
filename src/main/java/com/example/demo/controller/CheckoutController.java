@@ -14,7 +14,7 @@ public class CheckoutController {
     CheckoutService checkoutService;
 
     /**
-     * ホーム画面のGet用メソッド
+     * チェックアウト画面のGet用メソッド
      */
     @GetMapping("/checkout")
     public String returnHome(Model model) {
